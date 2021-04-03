@@ -1,0 +1,89 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+@property --x {
+	inherits: false;
+  initial-value: 0;
+  syntax: '<number>';
+}
+
+@property --y {
+	inherits: false;
+  initial-value: 0;
+  syntax: '<number>';
+}
+
+@property --r {
+	inherits: false;
+  initial-value: 0;
+  syntax: '<number>';
+}
+
+@property --g {
+	inherits: false;
+  initial-value: 0;
+  syntax: '<number>';
+}
+
+@property --b {
+	inherits: false;
+  initial-value: 0;
+  syntax: '<number>';
+}
+
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  position: relative;
+  background-color: rgb(var(--r), var(--g), var(--b));
+  /* animation: ballAnimate 2s infinite alternate ease-in-out; */
+}
+
+
+.ball {
+  --size: 10vmin;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--size);
+  height: var(--size);
+  background-color: rgb(var(--r), var(--g), var(--b));
+  filter: invert(100%);
+  border-radius: 50%;
+  transform: translate(calc(var(--x) * 1vmin), calc(var(--y) * 1vmin));
+  animation: ballAnimate 2s infinite alternate ease-in-out;
+}
+
+@keyframes ballAnimate {
+  0% {
+    --x: 0;
+    --y: 0;
+  }
+  25% {
+    --y: 20;
+
+    --r: 100;
+    --g: 100;
+    --b: 30;
+  }
+  50% {
+    --x: 30;
+  }
+  75% {
+    --y: 50;
+
+    --r: 255;
+    --g: 0;
+    --b: 255;
+  }
+  100% {
+    --x: 70;
+    --y: 80;
+
+    --r: 0;
+    --g: 255;
+    --b: 250;
+  }
+}

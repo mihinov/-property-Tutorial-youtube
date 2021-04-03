@@ -1,0 +1,73 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+	min-height: 100vh;
+	background: #d1f3fa;
+}
+
+@property --x {
+	inherits: false;
+  initial-value: 0;
+  syntax: '<number>';
+}
+
+@property --y {
+	inherits: false;
+  initial-value: 0;
+  syntax: '<number>';
+}
+
+@property --rotate {
+	inherits: false;
+  initial-value: 0deg;
+  syntax: '<angle>';
+}
+
+.ball {
+	height: 10vmin;
+	width: 10vmin;
+	border-radius: 50%;
+	fill: #e69119;
+	background: #a16512;
+	animation: throw 3s infinite alternate ease-in-out;
+	transform: translateX(calc( var(--x) * 1vmin )) translateY(calc( var(--y) * 1vmin )) rotate(var(--rotate));
+}
+
+@keyframes throw {
+	0% {
+		--y: 0;
+		--x: 0;
+		--rotate: 0deg;
+	}
+
+	16.6% {
+		--x: 45;
+		--y: 45;
+	}
+  
+	33.3% {
+		--x: 0;
+		--y: 105;
+	}
+
+	50% {
+		--x: 85;
+		--y: 105;
+	}
+
+	66.4% {
+		--x: 85;
+		--y: 0;
+	}
+
+	85% {
+		--x: 5;
+	}
+	100% {
+		--rotate: 360deg;
+		--y: 105;
+	}
+}
