@@ -38,7 +38,7 @@ body {
   min-height: 100vh;
   position: relative;
   background-color: rgb(var(--r), var(--g), var(--b));
-  /* animation: ballAnimate 2s infinite alternate ease-in-out; */
+  animation: ballAnimate 2s infinite alternate ease-in-out;
 }
 
 
